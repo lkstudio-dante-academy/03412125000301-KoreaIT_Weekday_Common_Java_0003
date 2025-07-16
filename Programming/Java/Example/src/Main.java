@@ -26,9 +26,6 @@ import Example.Example_10.CE01Example_10;
 import Example.Example_11.CE01Example_11;
 import Example.Example_12.CE01Example_12;
 
-import Practice.Practice_01.CP01Practice_01;
-import Practice.Practice_02.CP01Practice_02;
-
 import Training.Training_01.CT01Training_01;
 import Training.Training_02.CT01Training_02;
 
@@ -56,8 +53,8 @@ import Training.Training_02.CT01Training_02;
  * - 단일 행 주석 (//)
  * - 다중 행 주석
  *
- * 위와 같이 Java 는 단일 행 주석과 다중 행 주석을 제공하며 이를 활용해서
- * 사용자 (프로그래머) 를 위한 여러가지 메모를 작성하는 것이 가능하다.
+ * 위와 같이 Java 는 단일 행 주석과 다중 행 주석을 제공하며 이를 활용해서 사용자 (프로그래머) 를 위한
+ * 여러가지 메모를 작성하는 것이 가능하다.
  */
 public class Main {
 	/*
@@ -87,9 +84,6 @@ public class Main {
 //		CE01Example_10.start(args);
 //		CE01Example_11.start(args);
 //		CE01Example_12.start(args);
-
-//		CP01Practice_01.start(args);
-//		CP01Practice_02.start(args);
 
 //		CT01Training_01.start(args);
 //		CT01Training_02.start(args);
