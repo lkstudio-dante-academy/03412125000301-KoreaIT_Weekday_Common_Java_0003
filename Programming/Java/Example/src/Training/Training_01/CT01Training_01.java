@@ -12,6 +12,15 @@ package Training.Training_01;
 public class CT01Training_01 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		char chLetterA = 'A';
+		char chLetterB = 'B';
+		char chLetterC = 'C';
+		
+		String oStr = "ABC";
+		
+		System.out.print("ABC\n");
+		System.out.printf("%s\n", oStr);
+		System.out.printf("%c%c%c\n", 'A', 'B', 'C');
+		System.out.printf("%c%c%c\n", chLetterA, chLetterB, chLetterC);
 	}
 }
