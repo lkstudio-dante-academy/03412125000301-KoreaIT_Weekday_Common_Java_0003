@@ -78,12 +78,8 @@ public class CE01Example_04 {
 		System.out.printf("%d + %d = %d\n", nValA, nValB, nValA + nValB);
 		System.out.printf("%d - %d = %d\n", nValA, nValB, nValA - nValB);
 		System.out.printf("%d * %d = %d\n", nValA, nValB, nValA * nValB);
-		
-		// 우항이 0 이 아닐 경우
-		if(nValB != 0) {
-			System.out.printf("%d / %d = %d\n", nValA, nValB, nValA / nValB);
-			System.out.printf("%d %% %d = %d\n", nValA, nValB, nValA % nValB);
-		}
+		System.out.printf("%d / %d = %d\n", nValA, nValB, nValA / nValB);
+		System.out.printf("%d %% %d = %d\n", nValA, nValB, nValA % nValB);
 		
 		/*
 		 * 아래와 같이 관계 연산자의 결과는 참 or 거짓을 표현하는 boolean 데이터가 반환되기 때문에
