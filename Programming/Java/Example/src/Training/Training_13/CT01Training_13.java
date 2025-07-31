@@ -17,12 +17,46 @@ package Training.Training_13;
  * ...이하 생략
  */
 
+import java.util.Scanner;
+
 /**
  * Training 13
  */
 public class CT01Training_13 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		final int PRICE_STUFF_A = 50;
+		final int PRICE_STUFF_B = 250;
+		final int PRICE_STUFF_C = 500;
+		
+		Scanner oScanner = new Scanner(System.in);
+		
+		System.out.print("소지 금액 입력 : ");
+		int nAmount = oScanner.nextInt();
+		
+		System.out.println("\n=====> 구입 가능 조합 <=====");
+		
+		for(int i = 0; i <= nAmount; i += PRICE_STUFF_A) {
+			for(int j = 0; j <= nAmount; j += PRICE_STUFF_B) {
+				for(int k = 0; k <= nAmount; k += PRICE_STUFF_C) {
+					int nPrice_Total = i + j + k;
+					
+					// 조합이 불가능 할 경우
+					if(nPrice_Total != nAmount) {
+						continue;
+					}
+					
+					int nNumStuffsA = i / PRICE_STUFF_A;
+					int nNumStuffsB = j / PRICE_STUFF_B;
+					int nNumStuffsC = k / PRICE_STUFF_C;
+					
+					String oMsgA = String.format("물건 A x %d 개", nNumStuffsA);
+					String oMsgB = String.format("물건 B x %d 개", nNumStuffsB);
+					String oMsgC = String.format("물건 C x %d 개", nNumStuffsC);
+					
+					System.out.printf("%s, %s, %s\n", oMsgA, oMsgB, oMsgC);
+				}
+			}
+		}
 	}
 }

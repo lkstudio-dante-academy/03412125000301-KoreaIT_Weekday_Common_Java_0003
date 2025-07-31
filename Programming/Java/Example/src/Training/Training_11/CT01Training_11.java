@@ -32,13 +32,14 @@ public class CT01Training_11 {
 	/** 초기화 */
 	public static void start(String[] args) {
 		Scanner oScanner = new Scanner(System.in);
+		int nStep = 3;
 		
-		for(int i = 2; i < 10; i += 3) {
+		for(int i = 2; i < 10; i += nStep) {
 			for(int j = 1; j < 10; ++j) {
-				for(int k = 0; k < 3; ++k) {
+				for(int k = 0; k < nStep; ++k) {
 					// 구구단 출력이 불가능 할 경우
 					if(k + i >= 10) {
-						continue;
+						break;
 					}
 					
 					System.out.printf("%d * %d = %-4d", k + i, j, (k + i) * j);
