@@ -38,11 +38,11 @@ public class CT01Training_11 {
 			for(int j = 1; j < 10; ++j) {
 				for(int k = 0; k < nStep; ++k) {
 					// 구구단 출력이 불가능 할 경우
-					if(k + i >= 10) {
+					if(i + k >= 10) {
 						break;
 					}
 					
-					System.out.printf("%d * %d = %-4d", k + i, j, (k + i) * j);
+					System.out.printf("%d * %d = %-4d", i + k, j, (i + k) * j);
 				}
 				
 				System.out.println();

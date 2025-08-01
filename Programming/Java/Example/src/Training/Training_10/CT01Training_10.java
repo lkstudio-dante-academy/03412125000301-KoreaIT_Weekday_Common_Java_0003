@@ -31,7 +31,7 @@ public class CT01Training_10 {
 		int nValC = oScanner.nextInt();
 		
 		int nVal_Max = (nValA >= nValB) ? nValA : nValB;
-		nVal_Max = (nValC >= nVal_Max) ? nValC : nVal_Max;
+		nVal_Max = (nVal_Max >= nValC) ? nVal_Max : nValC;
 		
 		for(int i = 0; i < nVal_Max; ++i) {
 			String oStrA = (i < nValA) ? "*" : " ";
