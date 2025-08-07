@@ -48,6 +48,8 @@ import Training.Training_19.CT01Training_19;
 import Training.Training_20.CT01Training_20;
 import Training.Training_21.CT01Training_21;
 import Training.Training_22.CT01Training_22;
+import Training.Training_23.CT01Training_23;
+import Training.Training_24.CT01Training_24;
 
 /*
  * 클래스 (Class) 란?
@@ -126,6 +128,8 @@ public class Main {
 //		CT01Training_19.start(args);
 //		CT01Training_20.start(args);
 //		CT01Training_21.start(args);
-		CT01Training_22.start(args);
+//		CT01Training_22.start(args);
+//		CT01Training_23.start(args);
+		CT01Training_24.start(args);
 	}
 }
