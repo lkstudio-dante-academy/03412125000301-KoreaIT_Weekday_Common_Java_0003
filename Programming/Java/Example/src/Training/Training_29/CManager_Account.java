@@ -13,6 +13,12 @@ public class CManager_Account {
 	private CManager_Account() {
 		// Do Something
 	}
+
+    /** 잔액을 반환한다 */
+    public int getAmount(int a_nNum) {
+        int nResult = this.findAccount(a_nNum);
+        return m_oAccounts[nResult].getAmount();
+    }
 	
 	/** 인스턴스를 반환한다 */
 	public static CManager_Account getInst() {
@@ -37,6 +43,12 @@ public class CManager_Account {
 		CAccount oAccount = new CAccount(a_nNum, a_nAmount);
 		m_oAccounts[m_nNumAccounts++] = oAccount;
 	}
+
+    /** 계좌를 검색한다 */
+    public void searchAccount(int a_nNum) {
+        int nResult = this.findAccount(a_nNum);
+        m_oAccounts[nResult].showInfo();
+    }
 	
 	/** 잔액을 증가 시킨다 */
 	public void incrAmount(int a_nNum, int a_nIncr) {

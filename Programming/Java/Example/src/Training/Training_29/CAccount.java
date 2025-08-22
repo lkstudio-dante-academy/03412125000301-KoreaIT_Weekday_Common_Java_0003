@@ -10,7 +10,7 @@ public class CAccount {
 	/** 생성자 */
 	public CAccount(int a_nNum, int a_nAmount) {
 		this.m_nNum = a_nNum;
-		this.m_nAmount = a_nAmount;
+        this.incrAmount(a_nAmount);
 	}
 	
 	/** 계좌 번호를 반환한다 */

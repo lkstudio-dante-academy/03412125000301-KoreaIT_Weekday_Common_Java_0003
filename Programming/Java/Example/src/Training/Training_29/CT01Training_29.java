@@ -72,10 +72,17 @@ public class CT01Training_29 {
 			}
 			
 			try {
-			
+				switch(nMenu) {
+					case MENU_OPEN_ACCOUNT -> openAccount();
+					case MENU_DEPOSIT -> deposit();
+					case MENU_WITHDRAW -> withdraw();
+					case MENU_PRINT_ACCOUNTS_ALL -> printAccounts_All();
+				}
 			} catch(Exception oException) {
 				System.out.println(oException.getMessage());
 			}
+
+            System.out.println();
 		} while(true);
 		
 		System.out.println("프로그램을 종료합니다.");
@@ -94,8 +101,8 @@ public class CT01Training_29 {
 	private static void printMenu() {
 		System.out.println("=====> 메뉴 <=====");
 		System.out.println("1. 계좌 개설");
-		System.out.println("2. 입금");
-		System.out.println("3. 출금");
+		System.out.println("2. 계좌 입금");
+		System.out.println("3. 계좌 출금");
 		System.out.println("4. 모든 계좌 출력");
 		System.out.println("5. 종료");
 		
@@ -103,18 +110,81 @@ public class CT01Training_29 {
 	}
 	
 	/** 계좌를 개설한다 */
-	private static void openAccount() {
-	
+	private static void openAccount() throws Exception {
+        Scanner oScanner = new Scanner(System.in);
+
+        System.out.print("계좌 번호 (1 ~ 9) 입력 : ");
+        int nNum = oScanner.nextInt();
+
+        int nResult = CManager_Account.getInst().findAccount(nNum);
+
+        // 계좌가 존재 할 경우
+        if(nResult >= 0) {
+            throw new CException_Duplicate(nNum);
+        }
+
+        System.out.print("초기 금액 입력 : ");
+        int nAmount = oScanner.nextInt();
+
+        CManager_Account.getInst().addAccount(nNum, nAmount);
+
+        System.out.println("\n=====> 신규 계좌 정보 <=====");
+        CManager_Account.getInst().searchAccount(nNum);
 	}
 	
 	/** 입금한다 */
-	private static void deposit() {
-	
+	private static void deposit() throws Exception {
+        Scanner oScanner = new Scanner(System.in);
+
+        System.out.print("계좌 번호 입력 : ");
+        int nNum = oScanner.nextInt();
+
+        int nResult = CManager_Account.getInst().findAccount(nNum);
+
+        // 계좌가 없을 경우
+        if(nResult < 0) {
+            throw new CException_Missing(nNum);
+        }
+
+        int nAmount = CManager_Account.getInst().getAmount(nNum);
+
+        System.out.printf("입금 금액 입력 (현재 잔액 : %d) : ", nAmount);
+        int nIncr = oScanner.nextInt();
+
+        CManager_Account.getInst().incrAmount(nNum, nIncr);
+
+        System.out.printf("계좌 번호 %d 에 %s 을(를) 입금했습니다.\n",
+                nNum, nIncr);
 	}
 	
 	/** 출금한다 */
-	private static void withdraw() {
-	
+	private static void withdraw() throws Exception {
+        Scanner oScanner = new Scanner(System.in);
+
+        System.out.print("계좌 번호 입력 : ");
+        int nNum = oScanner.nextInt();
+
+        int nResult = CManager_Account.getInst().findAccount(nNum);
+
+        // 계좌가 없을 경우
+        if(nResult < 0) {
+            throw new CException_Missing(nNum);
+        }
+
+        int nAmount = CManager_Account.getInst().getAmount(nNum);
+
+        System.out.printf("출금 금액 입력 (현재 잔액 : %d) : ", nAmount);
+        int nDecr = oScanner.nextInt();
+
+        // 잔액이 부족 할 경우
+        if(nDecr > nAmount) {
+            throw new CException_NotEnough(nNum);
+        }
+
+        CManager_Account.getInst().incrAmount(nNum, -nDecr);
+
+        System.out.printf("계좌 번호 %d 에서 %d 을(를) 출금했습니다.\n",
+                nNum, nDecr);
 	}
 	
 	/** 모든 계좌를 출력한다 */
