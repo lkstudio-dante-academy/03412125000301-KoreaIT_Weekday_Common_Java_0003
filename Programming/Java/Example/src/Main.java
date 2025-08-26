@@ -79,6 +79,7 @@ import Training.Training_26.CT01Training_26;
 import Training.Training_27.CT01Training_27;
 import Training.Training_28.CT01Training_28;
 import Training.Training_29.CT01Training_29;
+import Training.Training_30.CT01Training_30;
 
 /*
  * 클래스 (Class) 란?
@@ -186,5 +187,6 @@ public class Main {
 //		CT01Training_27.start(args);
 //		CT01Training_28.start(args);
 //		CT01Training_29.start(args);
+//		CT01Training_30.start(args);
 	}
 }
