@@ -22,6 +22,7 @@ package Example.Example_27;
  */
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Example 27 (제네릭 - 2)
@@ -29,6 +30,41 @@ import java.util.Random;
 public class CE01Example_27 {
 	/** 초기화 */
 	public static void start(String[] args) {
-		// Do Something
+		Random oRandom = new Random();
+		Scanner oScanner = new Scanner(System.in);
+		
+		CList_Array<Integer> oListValuesA = new CList_Array<>();
+		CList_Linked<Integer> oListValuesB = new CList_Linked<>();
+		
+		for(int i = 0; i < 10; ++i) {
+			int nVal = oRandom.nextInt(1, 100);
+			
+			oListValuesA.addVal(nVal);
+			oListValuesB.addVal(nVal);
+		}
+		
+		System.out.println("=====> 리스트 <=====");
+		System.out.println(oListValuesA);
+		System.out.println(oListValuesB);
+		
+		System.out.print("\n정수 입력 (추가) : ");
+		int nVal_Insert = oScanner.nextInt();
+		
+		oListValuesA.insertVal(0, nVal_Insert);
+		oListValuesB.insertVal(0, nVal_Insert);
+		
+		System.out.println("\n=====> 리스트 - 추가 후 <=====");
+		System.out.println(oListValuesA);
+		System.out.println(oListValuesB);
+		
+		System.out.print("\n정수 입력 (제거) : ");
+		int nVal_Remove = oScanner.nextInt();
+		
+		oListValuesA.removeVal(nVal_Remove);
+		oListValuesB.removeVal(nVal_Remove);
+		
+		System.out.println("\n=====> 리스트 - 제거 후 <=====");
+		System.out.println(oListValuesA);
+		System.out.println(oListValuesB);
 	}
 }
