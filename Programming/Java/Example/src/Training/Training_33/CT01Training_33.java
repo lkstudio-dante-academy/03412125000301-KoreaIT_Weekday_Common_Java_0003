@@ -38,7 +38,8 @@ public class CT01Training_33 {
 		Set<Character> oSetLetters = new HashSet<>();
 		
 		for(int i = 0; i < a_oStr.length(); ++i) {
-			oSetLetters.add(Character.toLowerCase(a_oStr.charAt(i)));
+			char chLetter = a_oStr.charAt(i);
+			oSetLetters.add(Character.toLowerCase(chLetter));
 		}
 		
 		return a_oStr.length() != oSetLetters.size();
