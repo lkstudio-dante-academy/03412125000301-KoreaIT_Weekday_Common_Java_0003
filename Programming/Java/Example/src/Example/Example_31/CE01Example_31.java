@@ -53,10 +53,6 @@ package Example.Example_31;
  * 데드락 현상이 발생한다. (+ 즉, 쓰레드가 동작을 멈춘다는 것을 의미한다.)
  */
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-
 /**
  * Example 31 (쓰레드)
  */
@@ -112,7 +108,10 @@ public class CE01Example_31 {
 	/** 쓰레드 A 진입 메서드 */
 	private static void main_ThreadA() {
 		for(int i = 0; i < 1000000; ++i) {
-			m_oCounter.incrCount(1);
+			synchronized(m_oLock) {
+				m_oCounter.incrCount(1);
+			}
+			
 			System.out.println("쓰레드 A 호출!");
 		}
 	}
@@ -120,10 +119,7 @@ public class CE01Example_31 {
 	/** 쓰레드 B 진입 메서드 */
 	private static void main_ThreadB() {
 		for(int i = 0; i < 1000000; ++i) {
-			synchronized(m_oLock) {
-				m_oCounter.incrCount(1);
-			}
-			
+			m_oCounter.incrCount_Sync(1);
 			System.out.println("쓰레드 B 호출!");
 		}
 	}
