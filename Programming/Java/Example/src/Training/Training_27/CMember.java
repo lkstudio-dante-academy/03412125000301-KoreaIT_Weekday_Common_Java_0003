@@ -23,4 +23,10 @@ public class CMember {
 		System.out.printf("이름 : %s\n", m_oName);
 		System.out.printf("전화 번호 : %s\n", m_oPNumber);
 	}
+	
+	/** 정보를 반환한다 */
+	@Override
+	public String toString() {
+		return String.format("%s,%s", m_oName, m_oPNumber);
+	}
 }

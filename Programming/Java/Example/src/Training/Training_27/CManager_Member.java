@@ -1,5 +1,11 @@
 package Training.Training_27;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+
 /**
  * 회원 관리자
  */
@@ -59,5 +65,42 @@ public class CManager_Member {
 		}
 		
 		return -1;
+	}
+	
+	/** 회원을 로드한다 */
+	public void loadMembers_FromFile(String a_oPath_File) {
+		File oFile = new File(a_oPath_File);
+		
+		// 파일이 없을 경우
+		if(!oFile.exists()) {
+			return;
+		}
+		
+		try(BufferedReader oReader = new BufferedReader(new FileReader(oFile))) {
+			m_nNumMembers = 0;
+			
+			while(oReader.ready()) {
+				String[] oInfo_Member = oReader.readLine().split(",");
+				this.addMember(oInfo_Member[0], oInfo_Member[1]);
+			}
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
+	}
+	
+	/** 회원을 저장한다 */
+	public void saveMembers_ToFile(String a_oPath_File) {
+		File oFile = new File(a_oPath_File);
+		
+		try(BufferedWriter oWriter = new BufferedWriter(new FileWriter(oFile))) {
+			for(int i = 0; i < m_nNumMembers; ++i) {
+				CMember oMember = m_oMembers[i];
+				
+				oWriter.write(oMember.toString());
+				oWriter.newLine();
+			}
+		} catch(Exception oException) {
+			oException.printStackTrace();
+		}
 	}
 }
